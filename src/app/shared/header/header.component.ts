@@ -40,6 +40,7 @@ export class HeaderComponent {
     if (confirm("Are you sure you want to sign out?")) {
       this.authentification.signOut();
       this.router.navigate(["/login"]);
+      this.storage.user = null;
     }
   }
 
