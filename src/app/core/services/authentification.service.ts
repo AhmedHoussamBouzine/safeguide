@@ -164,12 +164,6 @@ export class AuthentificationService {
       lastName: "",
       picture: "assets/user.svg",
       email: "",
-      location: {
-        lat: 0,
-        lon: 0,
-      },
-      ratings: [],
-      blocked: false,
       lastLogin: Timestamp.now(),
       joinedAt: Timestamp.now(),
     };
@@ -177,11 +171,7 @@ export class AuthentificationService {
     // Return user with data
     return {
       ...defaultUser,
-      ...data,
-      location: {
-        ...defaultUser.location,
-        ...data.location,
-      },
+      ...data
     };
   }
 
