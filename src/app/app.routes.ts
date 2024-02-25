@@ -10,6 +10,7 @@ import { RabatComponent } from './layout/rabat/rabat.component';
 import { AgadirComponent } from './layout/agadir/agadir.component';
 import { TangierComponent } from './layout/tangier/tangier.component';
 import { MarrakechComponent } from './layout/marrakech/marrakech.component';
+import { DiscoverComponent } from './layout/discover/discover.component';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,10 @@ export const routes: Routes = [
       {
         path: "fez",
         component: FezComponent,
+      },
+      {
+        path: "discover",
+        component: DiscoverComponent,
       },
       {
         path: "casablanca",

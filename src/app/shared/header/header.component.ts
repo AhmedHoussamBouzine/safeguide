@@ -6,7 +6,6 @@ import { initFlowbite } from "flowbite";
 import { ButtonComponent } from "../../components/button/button.component";
 import { AuthentificationService } from "../../core/services/authentification.service";
 
-
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -14,11 +13,13 @@ import { AuthentificationService } from "../../core/services/authentification.se
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
+
 export class HeaderComponent {
   public storage = inject(StorageService);
   public authentification = inject(AuthentificationService);
   public router = inject(Router);
   links = [
+    { label: "Discover", path: "/discover" },
     { label: "Casablanca", path: "/casablanca" },
     { label: "Rabat", path: "/rabat" },
     { label: "Marrakech", path: "/marrakech" },
@@ -43,3 +44,6 @@ export class HeaderComponent {
   }
 
 }
+
+
+
