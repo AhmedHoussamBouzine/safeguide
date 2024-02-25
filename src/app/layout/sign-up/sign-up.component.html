@@ -1,0 +1,81 @@
+<div class="bg-white rounded-lg shadow my-20 md:w-1/2 mx-auto">
+  <div class="p-8 space-y-6">
+    <h1 class="text-2xl font-bold mb-6">Create new account</h1>
+    <app-sign-in-google [disabled]="buttonsDisabled" />
+    <div class="flex items-center justify-center space-x-4">
+      <div class="w-1/2 h-0.5 bg-gray-300"></div>
+      <span class="text-gray-500">or</span>
+      <div class="w-1/2 h-0.5 bg-gray-300"></div>
+    </div>
+    <form class="space-y-4 md:space-y-6" (ngSubmit)="handleSubmit()">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <app-input
+          input="text"
+          name="firstName"
+          inputId="first-name"
+          label="First name"
+          placeholder="Jhon"
+          [required]="true"
+          [(ngModel)]="user.firstName"
+          preIcon="ri-user-line"
+        />
+        <app-input
+          input="text"
+          name="lastName"
+          inputId="last-name"
+          label="Last name"
+          placeholder="Doe"
+          [required]="true"
+          [(ngModel)]="user.lastName"
+          preIcon="ri-user-line"
+        />
+      </div>
+      <app-input
+        input="email"
+        name="email"
+        inputId="email"
+        label="Your email"
+        placeholder="example@example.com"
+        [required]="true"
+        [(ngModel)]="user.email"
+        preIcon="ri-mail-open-line"
+        containerClass="mb-4"
+      />
+      <app-input
+        input="password"
+        name="password"
+        inputId="password"
+        label="Password"
+        placeholder="••••••••"
+        [required]="true"
+        [enablePasswordToggle]="true"
+        [(ngModel)]="user.password"
+        postIcon="ri-eye-line"
+        containerClass="mb-4"
+      />
+      <app-button
+        type="submit"
+        [disabled]="buttonsDisabled"
+        size="xl"
+        class="w-full"
+      >
+        @if (buttonsDisabled) {
+          <div class="animate-spin">
+            <i class="ri-loader-4-line"></i>
+          </div>
+        } @else {
+          Create account
+        }
+      </app-button>
+      <p class="text-sm font-light text-gray-500">
+        Already registered?
+        <a
+          routerLink="/login"
+          class="font-medium text-primary-500 hover:underline"
+        >
+          Login
+        </a>
+      </p>
+    </form>
+  </div>
+</div>

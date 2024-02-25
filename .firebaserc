@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "safeguide-fbc34": {
+      "hosting": {
+        "safeguide": [
+          "safeguide-fbc34"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "safeguide-fbc34"
+  }
+}

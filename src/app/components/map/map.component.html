@@ -1,0 +1,8 @@
+<div
+  class="h-[400px] mt-6 rounded border border-gray-300"
+  [class]="readonly ? 'cursor-grab' : 'cursor-pointer'"
+  leaflet
+  [leafletOptions]="options"
+  [leafletLayers]="layers"
+  (leafletClick)="onMapClick($event)"
+></div>

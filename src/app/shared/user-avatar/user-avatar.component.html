@@ -1,0 +1,11 @@
+<div class="flex items-center gap-4 rounded-full bg-gray-50 border p-1 pe-4">
+  <img
+    class="rounded-full"
+    [class]="'h-' + size + ' w-' + size"
+    [src]="user.picture"
+    alt=""
+  />
+  @if (showName) {
+    <div class="font-medium">{{ user.displayName }}</div>
+  }
+</div>

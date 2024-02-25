@@ -1,0 +1,77 @@
+<div class="bg-white rounded-lg shadow my-20 md:w-1/2 mx-auto">
+  <div class="p-8 space-y-6">
+    <h1 class="text-2xl font-bold mb-6">Sign in to your account</h1>
+    <app-sign-in-google [disabled]="buttonsDisabled" />
+    <div class="flex items-center justify-center space-x-4">
+      <div class="w-1/2 h-0.5 bg-gray-300"></div>
+      <span class="text-gray-500">or</span>
+      <div class="w-1/2 h-0.5 bg-gray-300"></div>
+    </div>
+    <form class="space-y-4 md:space-y-6" (ngSubmit)="handleSubmit()">
+      <app-input
+        input="email"
+        name="email"
+        inputId="email"
+        label="Your email"
+        placeholder="example@example.com"
+        [required]="true"
+        preIcon="ri-mail-open-line"
+        [(ngModel)]="user.email"
+        containerClass="mb-4"
+      />
+      <app-input
+        input="password"
+        name="password"
+        inputId="password"
+        label="Password"
+        placeholder="••••••••"
+        [required]="true"
+        postIcon="ri-eye-line"
+        [enablePasswordToggle]="true"
+        [(ngModel)]="user.password"
+        containerClass="mb-4"
+      />
+      <div class="flex items-center justify-between">
+        <div class="flex items-start">
+          <div class="flex items-center h-5">
+            <input
+              id="remember"
+              aria-describedby="remember"
+              type="checkbox"
+              class="w-4 h-4 border border-gray-300 rounded bg-gray-50"
+            />
+          </div>
+          <div class="ml-2 text-sm">
+            <label for="remember" class="text-gray-500"> Remember me </label>
+          </div>
+        </div>
+        <a class="text-sm font-medium text-orange-500 hover:underline">
+          Forgot password?
+        </a>
+      </div>
+      <app-button
+        type="submit"
+        [disabled]="buttonsDisabled"
+        size="xl"
+        class="w-full"
+      >
+        @if (buttonsDisabled) {
+          <div class="animate-spin">
+            <i class="ri-loader-4-line"></i>
+          </div>
+        } @else {
+          Sign in
+        }
+      </app-button>
+      <p class="text-sm font-light text-gray-500">
+        Not registered?
+        <a
+          routerLink="/signup"
+          class="font-medium text-orange-500 hover:underline"
+        >
+          <span class="text-orange-800">Create an account</span>
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
