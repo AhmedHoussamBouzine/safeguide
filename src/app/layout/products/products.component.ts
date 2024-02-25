@@ -13,7 +13,7 @@ import { DataService } from '../../core/services/data.service';
 })
 export class ProductsComponent {
   searchQuery = "";
-  products: any = []
+  products: any = [{},{}]
   city = "";
   category = "";
   constructor(private route: ActivatedRoute, private data: DataService) { }
@@ -23,14 +23,14 @@ export class ProductsComponent {
       this.city = params['city'];
       this.category = params['category'];
     });
-    if (this.category != "") {
-      await this.data.getitemsByCity(this.city).then((items) => {
-        this.products = items;
-      });
-    } else {
-      this.data.getItemsByCityAndCategory(this.city, this.category).then((items) => {
-        this.products = items;
-      })
-    }
+    // if (this.category != "") {
+    //   await this.data.getitemsByCity(this.city).then((items) => {
+    //     this.products = items;
+    //   });
+    // } else {
+    //   this.data.getItemsByCityAndCategory(this.city, this.category).then((items) => {
+    //     this.products = items;
+    //   })
+    // }
   }
 }
