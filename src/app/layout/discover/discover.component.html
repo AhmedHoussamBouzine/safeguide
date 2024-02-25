@@ -1,134 +1,37 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Safeguide</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style>
-     .card {
-      display: inline-block;
-      margin-right: 1.5%;
-      }
-</style>
-</head>
-<body>
-  <br>
-  <!-- Casablanca -->
-  <div class=" flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-            <img class="rounded-t-lg" src="https://t3.ftcdn.net/jpg/02/67/20/10/360_F_267201056_wcEH6uQ6xu5oNHtY9Hq3YOhDwe1zk1XX.jpg" alt="" />
-        </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Casablanca</h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">A vibrant fusion of historical charm and contemporary allure, where the echoes of the past harmonize with the dynamic pulse of modern life.</p>
-        <br><a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+<div class="my-14">
+  <div class="flex justify-between items-center flex-wrap mb-8">
+    <h1 class="text-xl font-sans font-bold">Explore Moroccan Cities</h1>
+    <div class="flex items-center">
+      <label for="search" class="mb-2 text-sm font-sans sr-only">
+        Search
+      </label>
+      <app-input input="text" [(ngModel)]="searchQuery" placeholder="Search..." postIcon="ri-search-line" />
     </div>
   </div>
-  <!-- Rabat -->
-  <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8 items-stretch">
+    @for(city of cities; track city.id){
+    <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow">
       <a href="#">
-          <img class="rounded-t-lg" src="https://www.journalgeneraldeleurope.org/wp-content/uploads/2017/11/tour-hassan-rabat-maroc1.jpg" alt="" />
+        <img class="rounded-t-lg w-full h-[300px] object-cover" [src]="city.image" [alt]="city.name" />
       </a>
       <div class="p-5">
-          <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Rabat</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              As the capital, Rabat gracefully balances tradition and modernity. Discover a regal city where historic monuments and contemporary vibes coexist in perfect harmony.            </p>
-          <br><a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-          </a>
-      </div>
-  </div>
-      <!-- Marrakech -->
-  <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-          <img class="rounded-t-lg" src="https://fr.le360.ma/resizer/DWDGhyK5loODx8BUzM-7LvcUWOU=/1216x684/filters:format(jpg):quality(70)/cloudfront-eu-central-1.images.arcpublishing.com/le360/YZ7TV6HGPJB5JGSGMFQLVUXXXU.jpeg" alt="" />
-      </a>
-      <div class="p-5">
-          <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Marrakech</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              A jewel in the south, Marrakech invites you to wander through vibrant souks, explore majestic palaces, and immerse yourself in the allure of a city where tradition dances with the rhythms of modern life.
-          <br><a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
+        <a href="#">
+          <h5 class="mb-4 text-2xl font-sans font-bold tracking-tight text-gray-900 ">{{city.name}}</h5>
+        </a>
+        <p class="mb-3 font-sans text-gray-700 h-[100px]">{{city.desc}}</p>
+        <br><a href="#"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-800 rounded-lg hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read more
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
         </a>
       </div>
+    </div>
+
+    }
   </div>
-  <!-- Fez -->
-  <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
-          <img class="rounded-t-lg" src="https://www.visitmorocco.com/sites/default/files/styles/thumbnail_destination_background_top5/public/thumbnails/image/tanneries-medina-of-fez-morocco-wizard8492.jpg?itok=VYYh3Kpd" alt="" />
-      </a>
-      <div class="p-5">
-          <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Fez</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Embark on a captivating journey through time in the heart of Morocco. Fes weaves an intricate tapestry of ancient medinas, historic wonders, and the rich cultural heritage that defines this enchanting city.
-          <br><a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-          </a>
-      </div>
-  </div>
-  <!-- Agadir -->
-  <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-          <img class="rounded-t-lg" src="https://www.konouzimmobilier.com/wp-content/uploads/2019/12/951338247a403ff4a6be66bfe0f2e875.jpg" alt="" />
-      </a>
-      <div class="p-5">
-          <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Agadir</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Nestled along golden shores, Agadir invites you to bask in the serenity of its beaches, offering a perfect blend of leisure and the gentle rhythm of coastal living.            
-            <br><a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-          </a>
-      </div>
-  </div>
-  <!-- Tangier -->
-  <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-          <img class="rounded-t-lg" src="https://leseco.ma/wp-content/uploads/2021/01/Tanger.jpg" alt="" />
-      </a>
-      <div class="p-5">
-          <a href="#">
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Tangier</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Positioned at the crossroads of two worlds, Tangier captivates with its unique blend of cultures and landscapes, where the Atlantic Ocean meets the Mediterranean Sea, creating a mesmerizing coastal panorama.
-              <br><a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Read more
-               <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-          </a>
-      </div>
-  </div>
-<br> 
-    
-</body>
-</html>
+
+</div>
