@@ -11,6 +11,7 @@ import { AgadirComponent } from './layout/agadir/agadir.component';
 import { TangierComponent } from './layout/tangier/tangier.component';
 import { MarrakechComponent } from './layout/marrakech/marrakech.component';
 import { DiscoverComponent } from './layout/discover/discover.component';
+import { ProductsComponent } from './layout/products/products.component';
 import { ChatComponent } from './layout/chat/chat.component';
 
 export const routes: Routes = [
@@ -28,9 +29,13 @@ export const routes: Routes = [
         component: FezComponent,
       },
       {
+        path: ":city/:category/products",
+        component: ProductsComponent,
+      },
+      {
         path: "discover",
         component: DiscoverComponent,
-      },      
+      },
       {
         path: "chat",
         component: ChatComponent,

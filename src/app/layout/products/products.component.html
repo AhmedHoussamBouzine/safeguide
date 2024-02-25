@@ -1,0 +1,21 @@
+<div class="my-14">
+  <div class="flex justify-between items-center flex-wrap mb-8">
+    <h1 class="text-xl font-sans font-bold">Discover Moroccan Cities</h1>
+    <div class="flex items-center">
+      <label for="search" class="mb-2 text-sm font-sans sr-only">
+        Search
+      </label>
+      <app-input input="text" [(ngModel)]="searchQuery" placeholder="Search..." postIcon="ri-search-line" />
+    </div>
+  </div>
+
+  <div class="gap-5 mb-8 items-stretch">
+    @for(product of products; track product){
+    <div class="bg-white w-full h-20 rounded-lg shadow">
+
+    </div>
+
+    }
+  </div>
+
+</div>

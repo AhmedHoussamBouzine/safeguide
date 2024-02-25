@@ -1,1 +1,12 @@
-<p>fez works!</p>
+<div class="my-14">
+  <div class="gap-5 mb-8 items-stretch">
+    @for(categorie of categories; track categorie){
+
+    <div [routerLink]="'/fez/' + categorie+'/products'" routerLinkActive="router-link-active"  class="bg-white w-full h-20 rounded-lg shadow my-2 flex items-center">
+       <h5 class="font-sans font-bold text-xl mx-4">{{categorie}}</h5>
+    </div>
+
+    }
+  </div>
+
+</div>
