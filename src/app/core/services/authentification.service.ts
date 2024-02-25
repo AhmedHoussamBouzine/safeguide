@@ -24,13 +24,17 @@ import {
   ref,
   uploadBytes,
 } from "@angular/fire/storage";
+import { StorageService } from '../data/storage.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthentificationService {
 
   constructor(private auth: Auth,
-    private firestore: Firestore) { }
+    private firestore: Firestore,
+    private storage: StorageService) { }
 
 
   public async signUp(userData: UserSignup) {
@@ -41,23 +45,13 @@ export class AuthentificationService {
         userData.email,
         userData.password,
       );
-
-      // Initialize user
-      const user = this.initUser({
-        id: userCredential.user.uid,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        email: userData.email,
-      });
-
-      // // Save user to the database
-      // const userDoc = doc(this.firestore, "users", user.id);
-      // await setDoc(userDoc, user);
+      // Store user data in Firestore
+      await this.storeUserData(userCredential.user.uid, userData);
 
       // Return user data
       return {
         error: null,
-        user,
+        user: userCredential.user,
       };
     } catch (error: any) {
       return {
@@ -66,7 +60,29 @@ export class AuthentificationService {
       };
     }
   }
+  private async storeUserData(userId: string, userData: UserSignup) {
+    try {
+      const userRef = doc(this.firestore, 'users', userId);
+      await setDoc(userRef, {
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+      });
+    } catch (error) {
+      console.error('Error while storing user data:', error);
+      throw error;
+    }
+  }
+  public getUser(userId: string): Observable<User> {
+    return new Observable((observer) => {
+      const userDoc = doc(this.firestore, "users", userId);
+      const unsubscribe = onSnapshot(userDoc, (user) => {
+        observer.next(user.data() as User);
+      });
 
+      return () => unsubscribe();
+    });
+  }
   public async signIn(email: string, password: string) {
     try {
       // Sign in user
@@ -75,7 +91,10 @@ export class AuthentificationService {
         email,
         password,
       );
-
+      const userDoc = doc(this.firestore, "users", userCredential.user.uid);
+      const userSnapshot = await getDoc(userDoc);
+      let userData = userSnapshot.data() as User;
+      this.storage.user = userData;
       // Return user data
       return {
         error: null,

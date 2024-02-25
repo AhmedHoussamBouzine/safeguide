@@ -7,5 +7,5 @@ import { User } from '../models/user';
 export class StorageService {
 
   constructor() { }
-  user: User | undefined;
+  user:any;
 }

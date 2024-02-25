@@ -41,7 +41,7 @@ export class SignUpComponent {
 
   async handleSubmit() {
     this.buttonsDisabled = true;
-
+    console.log(this.user);
     // TODO: Add form validation
 
     // Sign up
@@ -55,6 +55,7 @@ export class SignUpComponent {
           this.toastr.error("Oops! Something went wrong");
           break;
       }
+      console.log(result.user);
       this.buttonsDisabled = false;
       return;
     }

@@ -7,6 +7,7 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { InputComponent } from "../../components/input/input.component";
 import { AuthentificationService } from "../../core/services/authentification.service";
 import { SignInGoogleComponent } from "../../shared/sign-in-google/sign-in-google.component";
+import { StorageService } from "../../core/data/storage.service";
 
 @Component({
   selector: "app-login",
@@ -25,6 +26,7 @@ export class LoginComponent {
   private authentication = inject(AuthentificationService);
   private router = inject(Router);
   private toastr = inject(ToastrService);
+  private storage = inject(StorageService);
 
   constructor() {}
 
@@ -54,11 +56,9 @@ export class LoginComponent {
           this.toastr.error("Oops! Something went wrong");
           break;
       }
-
       this.buttonsDisabled = false;
       return;
     }
-
     // Redirect to explore page
     this.router.navigate(["/explore"]);
   }

@@ -10,7 +10,6 @@ import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { environment } from "../environments/environment.development";
 import { provideToastr } from "ngx-toastr";
 import { provideAnimations } from '@angular/platform-browser/animations';
-
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
   provideClientHydration(),
@@ -19,5 +18,5 @@ export const appConfig: ApplicationConfig = {
   importProvidersFrom(provideFirestore(() => getFirestore())),
   importProvidersFrom(provideDatabase(() => getDatabase())),
   provideAnimations(),
-  provideToastr(),]
+  provideToastr()]
 };

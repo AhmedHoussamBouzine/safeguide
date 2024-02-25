@@ -11,7 +11,6 @@ import { AuthentificationService } from "../../core/services/authentification.se
   selector: 'app-header',
   standalone: true,
   imports: [RouterLink, UserAvatarComponent, ButtonComponent],
-
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
