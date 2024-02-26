@@ -14,6 +14,7 @@ import {
   where,
 } from "@angular/fire/firestore";
 import { Item } from '../models/item';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
