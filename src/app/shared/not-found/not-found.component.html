@@ -1,1 +1,40 @@
-<p>not-found works!</p>
+<div class="container flex items-center py-28 mx-auto">
+  <div class="flex flex-col items-center max-w-sm mx-auto text-center">
+    <p
+      class="p-3 text-sm font-medium text-orange-800 rounded-full bg-primary-50"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+        />
+      </svg>
+    </p>
+    <h1 class="mt-3 text-2xl font-semibold md:text-3xl">Page not found</h1>
+    <p class="mt-4 text-gray-500 mb-8">
+      The page you are looking for doesn't exist. Here are some helpful links:
+    </p>
+
+    <div class="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
+      <app-button
+        color="light"
+        size="lg"
+        preIcon="ri-arrow-left-line"
+        (click)="goBack()"
+      >
+        Go Back
+      </app-button>
+      <app-button size="lg" preIcon="ri-home-3-line" routerLink="/explore">
+        Take me to Explore
+      </app-button>
+    </div>
+  </div>
+</div>
