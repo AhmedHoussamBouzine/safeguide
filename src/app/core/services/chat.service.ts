@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
+  DocumentData,
   Firestore,
+  QuerySnapshot,
   Timestamp,
   addDoc,
   collection,
@@ -15,7 +17,8 @@ import {
   where,
 } from "@angular/fire/firestore";
 import { Message } from '../models/message';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +29,11 @@ export class ChatService {
   constructor(private firestore: Firestore) { }
 
   async getMessages(): Promise<Message[]> {
-    const itemsSnapshots = await getDocs(collection(this.firestore, "messages"));
+    const qry = query(
+      this.messagesCollection,
+      orderBy("timestamp", "asc"),
+    );
+    const itemsSnapshots = await getDocs(qry);
     return itemsSnapshots.docs.map((doc) => doc.data() as Message);
   }
 
@@ -39,3 +46,5 @@ export class ChatService {
   }
 
 }
+
+

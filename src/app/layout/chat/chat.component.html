@@ -1,4 +1,4 @@
-<div class="flex flex-col h-screen my-14">
+<div class="flex flex-col h-[80vh] my-14 border-2 p-2 rounded-lg border-gray-600">
   <div class="bg-orange-800 text-white text-lg rounded-lg font-bold p-4 flex justify-between items-center">
     <span class="flex items-center">
       <i class="ri-chat-3-line text-xl mr-2"></i> Public Chat
@@ -12,16 +12,25 @@
       <p class="text-sm text-gray-500 text-center">Feel free to share information or answer other users.</p>
     </div>
   </div>
-  <div>
+  <div class="overflow-y-auto">
     @for(msg of messages; track msg){
-    <h5 class="font-sans text-white my-2 flex justify-between"> <span class="bg-primary-500 rounded-lg p-2"> {{msg.content}}</span> <span class="text-black">{{msg.timestamp}}</span>
-    </h5>
+    <div class="inline-flex items-center mb-4">
+      <img ngOptimizedImage class="w-8 h-8 rounded-full object-cover border" src="assets/user.svg" alt="user_image" />
+      <div class="mx-2 text-xs font-medium">
+        <p class="inline-flex items-center">
+         <span class="text-sm mr-2">{{ msg.sender}}</span>  {{ time(msg.timestamp.toDate()) }}
+        </p>
+        <div class="flex items-center gap-1">
+          <p>{{msg.content}}</p>
+        </div>
+      </div>
+    </div>
     }
   </div>
   <!-- Chat messages -->
   <div class="p-4 rounded-lg fixed bottom-1 right-1">
     <div class="flex items-center-center">
-      <app-input input="text" placeholder="Type your here..." [required]="true" [(ngModel)]="messageChat" />
+      <app-input input="text" name="text" placeholder="Type your here..." [required]="true" [(ngModel)]="messageChat" />
       <div class="m-2 text-center items-center cursor-pointer text-orange-900" (click)="send()">
         <i class="ri-send-plane-2-fill"></i>
       </div>

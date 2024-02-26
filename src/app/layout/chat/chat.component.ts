@@ -6,8 +6,10 @@ import { Timestamp } from 'firebase/firestore';
 import { StorageService } from '../../core/data/storage.service';
 import { Message } from '../../core/models/message';
 import { ChatService } from '../../core/services/chat.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+import dayjs from "dayjs";
 @Component({
   selector: 'app-chat',
   standalone: true,
@@ -20,21 +22,33 @@ export class ChatComponent {
   private chatService: ChatService = inject(ChatService);
   private storage: StorageService = inject(StorageService);
   messages: any[] = [];
-  text = '';
-  message: Message = {
-    content: this.text,
-    sender: 'this.storage.user.lastName',
-    timestamp: Timestamp.now()
-  };
   subscription: Subscription | undefined;
-  send() {
-    this.chatService.createMessage(this.message);
-    console.log("added")
-  }
+
   async ngOnInit() {
     await this.chatService.getMessages().then((items) => {
       this.messages = items;
     });
+  }
+
+  send() {
+    let sender: string;
+    if (this.storage.user && this.storage.user.lastName) {
+      sender = this.storage.user.lastName;
+    } else {
+      sender = 'user';
+    }
+    var message = {
+      content: this.messageChat,
+      sender: sender,
+      timestamp: Timestamp.now()
+    };
+    this.chatService.createMessage(message);
+    this.messages.push(message);
+    this.messageChat = '';
+  }
+
+  time(date: Date): string {
+    return dayjs(date).format('dddd [at] HH:mm A');
   }
 
 

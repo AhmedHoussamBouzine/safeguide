@@ -60,6 +60,6 @@ export class LoginComponent {
       return;
     }
     // Redirect to explore page
-    this.router.navigate(["/explore"]);
+    this.router.navigate(["/discover"]);
   }
 }
