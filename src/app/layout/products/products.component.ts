@@ -23,14 +23,14 @@ export class ProductsComponent {
       this.city = params['city'];
       this.category = params['category'];
     });
-    // if (this.category != "") {
-    //   await this.data.getitemsByCity(this.city).then((items) => {
-    //     this.products = items;
-    //   });
-    // } else {
-    //   this.data.getItemsByCityAndCategory(this.city, this.category).then((items) => {
-    //     this.products = items;
-    //   })
-    // }
+    if (this.category != "") {
+      await this.data.getitemsByCity(this.city).then((items) => {
+        this.products = items;
+      });
+    } else {
+      this.data.getItemsByCityAndCategory(this.city, this.category).then((items) => {
+        this.products = items;
+      })
+    }
   }
 }
