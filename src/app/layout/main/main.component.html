@@ -1,1 +1,19 @@
 <router-outlet />
+
+<button
+  class="fixed bottom-5 right-5 rounded-full bg-orange-800 p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-orange"
+  type="button" data-drawer-target="filter-drawer" data-drawer-show="filter-drawer" data-drawer-placement="right"
+  aria-controls="filter-drawer">
+  <i class="ri-chat-3-line"></i>
+</button>
+<!-- drawer component -->
+<div id="filter-drawer"
+  class="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80"
+  tabindex="-1" aria-labelledby="filter-drawer-label">
+  <button type="button" data-drawer-hide="filter-drawer" aria-controls="filter-drawer"
+    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center">
+    <i class="ri-close-line ri-lg"></i>
+    <span class="sr-only">Close menu</span>
+  </button>
+  <app-chat></app-chat>
+</div>

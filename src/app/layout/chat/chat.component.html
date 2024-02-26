@@ -1,10 +1,10 @@
-<div class="flex flex-col h-screen">
-  <div class="bg-blue-500 text-white text-lg font-bold p-4 flex justify-between items-center">
+<div class="flex flex-col h-screen my-14">
+  <div class="bg-orange-800 text-white text-lg rounded-lg font-bold p-4 flex justify-between items-center">
     <span class="flex items-center">
-        <i class="ri-chat-3-line text-xl mr-2"></i> Public Chat
+      <i class="ri-chat-3-line text-xl mr-2"></i> Public Chat
     </span>
     <span class="flex items-center text-sm bg-green-500 py-1 px-3 rounded-full">
-        <i class="ri-checkbox-circle-line mr-1"></i> Server is online
+      <i class="ri-checkbox-circle-line mr-1"></i> Online
     </span>
   </div>
   <div class="p-3">
@@ -13,12 +13,12 @@
     </div>
   </div>
   <!-- Chat messages -->
-  <div class="p-4 bg-gray-200">
-    <div class="flex space-x-2">
-      <input class="flex-1 border p-2 rounded" placeholder="Type your message..." type="text">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center">
-        Send <i class="ri-send-plane-2-fill ml-2"></i>
-      </button>
+  <div class="p-4 rounded-lg fixed bottom-1 right-1">
+    <div class="flex items-center-center">
+      <app-input input="text" placeholder="Type your here..." [required]="true" [(ngModel)]="messageChat" />
+      <div class="m-2 text-center items-center cursor-pointer text-orange-900" (click)="send()">
+        <i class="ri-send-plane-2-fill"></i>
+      </div>
     </div>
   </div>
 </div>
