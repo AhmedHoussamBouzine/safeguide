@@ -13,6 +13,7 @@ import { MarrakechComponent } from './layout/marrakech/marrakech.component';
 import { DiscoverComponent } from './layout/discover/discover.component';
 import { ProductsComponent } from './layout/products/products.component';
 import { ChatComponent } from './layout/chat/chat.component';
+import { ItemComponent } from './layout/item/item.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,10 @@ export const routes: Routes = [
       {
         path: "chat",
         component: ChatComponent,
+      },
+      {
+        path: "item",
+        component: ItemComponent,
       },
       {
         path: "casablanca",
