@@ -12,6 +12,12 @@
       <p class="text-sm text-gray-500 text-center">Feel free to share information or answer other users.</p>
     </div>
   </div>
+  <div>
+    @for(msg of messages; track msg){
+    <h5 class="font-sans text-white my-2 flex justify-between"> <span class="bg-primary-500 rounded-lg p-2"> {{msg.content}}</span> <span class="text-black">{{msg.timestamp}}</span>
+    </h5>
+    }
+  </div>
   <!-- Chat messages -->
   <div class="p-4 rounded-lg fixed bottom-1 right-1">
     <div class="flex items-center-center">
