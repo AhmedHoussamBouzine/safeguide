@@ -1,4 +1,10 @@
-<router-outlet />
+<div class="container-root">
+  <app-header />
+  <main class="main max-w-screen-xl container min-h-[78vh]">
+    <router-outlet />
+  </main>
+  <app-footer />
+</div>
 
 <button
   class="fixed bottom-5 right-5 rounded-full bg-orange-800 p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-orange"

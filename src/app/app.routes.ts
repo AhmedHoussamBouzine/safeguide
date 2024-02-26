@@ -14,6 +14,11 @@ import { DiscoverComponent } from './layout/discover/discover.component';
 import { ProductsComponent } from './layout/products/products.component';
 import { ChatComponent } from './layout/chat/chat.component';
 import { ItemComponent } from './layout/item/item.component';
+import {
+  canActivate,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from "@angular/fire/auth-guard";
 
 export const routes: Routes = [
   {
@@ -65,16 +70,19 @@ export const routes: Routes = [
         path: "marrakech",
         component: MarrakechComponent,
       },
+      {
+        path: "signup",
+        component: SignUpComponent,
+      },
+      {
+        path: "login",
+        component: LoginComponent,
+      },
     ],
   },
   {
-    path: "signup",
-    component: SignUpComponent,
+    path: "explore", component: ExploreComponent,
   },
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-  { path: "explore", component: ExploreComponent },
   { path: "**", component: NotFoundComponent },
 ];
+
