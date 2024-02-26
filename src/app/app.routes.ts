@@ -75,5 +75,6 @@ export const routes: Routes = [
     path: "login",
     component: LoginComponent,
   },
+  { path: "explore", component: ExploreComponent },
   { path: "**", component: NotFoundComponent },
 ];
