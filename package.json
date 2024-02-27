@@ -26,6 +26,7 @@
     "express": "^4.18.2",
     "firebase": "^10.8.0",
     "flowbite": "^2.2.1",
+    "ngx-leaflet": "^0.0.16",
     "ngx-toastr": "^18.0.0",
     "remixicon": "^4.2.0",
     "rxjs": "~7.8.0",

@@ -8,5 +8,23 @@ export class StorageService {
 
   constructor() { }
   user: any;
-  product: any;
+  product = {
+    title: '',
+    desc: '',
+    minprice: 0,
+    maxprice: 0,
+    picture: '',
+    category: '',
+    city: ''
+  };
+  city = {
+    name: '',
+    desc: '',
+    pictures: '',
+    location: {
+      lat: 0,
+      lon: 0
+    },
+    
+  };
 }

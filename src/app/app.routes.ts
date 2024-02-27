@@ -19,6 +19,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from "@angular/fire/auth-guard";
+import { CityComponent } from './layout/city/city.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,14 @@ export const routes: Routes = [
       {
         path: ":city/:category/products",
         component: ProductsComponent,
+      },
+      {
+        path: ":city/products",
+        component: ProductsComponent,
+      },
+      {
+        path: ":city/infos",
+        component: CityComponent,
       },
       {
         path: "discover",

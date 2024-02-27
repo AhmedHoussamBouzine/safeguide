@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8 items-stretch">
-    @for(city of cities; track city.id){
+    @for(city of cities; track city){
     <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow">
       <a href="#">
         <img class="rounded-t-lg w-full h-[300px] object-cover" [src]="city.image" [alt]="city.name" />
@@ -19,7 +19,7 @@
           <h5 class="mb-4 text-2xl font-sans font-bold tracking-tight text-gray-900 ">{{city.name}}</h5>
         </a>
         <p class="mb-3 font-sans text-gray-700 h-[100px]">{{city.desc}}</p>
-        <br><a href="#"
+        <br><a (click)="showDetails(city)"
           class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-800 rounded-lg hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-800">
           Read more
           <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
