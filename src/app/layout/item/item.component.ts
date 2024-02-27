@@ -20,10 +20,7 @@ export class ItemComponent {
   };
   ngOnInit() {
     this.product = this.storage.product;
-    this.mapCenter = {
-      latitude: this.product.location.lat,
-      longitude: this.product.location.lon,
-    };
+  
   }
   locationChange(location: { latitude: number; longitude: number }) {
     this.product.location = {
