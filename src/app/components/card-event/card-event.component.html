@@ -1,16 +1,18 @@
-<!-- <section class="card-sm" style="background-image:url('{{img1}}')">
-    <h5 class="card__text-lg">{{title1}} <sub style="font-size: xx-small;">{{date2}}</sub></h5>
-    <p class="card__text-sm">{{content1}}</p>
-</section> -->
+<div class="flex flex-wrap gap-4 justify-center">
+    <h2 class="w-full text-center text-white text-4xl font-bold mb-8">Next Events in Morocco</h2>
 
-<section class="card-sm" style="background-image:url('{{img2}}')">
-    <h5 class="card__text-lg">{{title2}}
-        <sub style="font-size: xx-large;">{{date2}}</sub>
-    </h5>
-    <p class="card__text-sm">{{content2}}</p>
-</section>
-
-<!-- <section class="card-sm" style="background-image:url('{{img3}}')">
-    <h5 class="card__text-lg">{{title3}} <sub style="font-size: xx-small;">{{date3}}</sub></h5>
-    <p class="card__text-sm">{{content3}}</p>
-</section> -->
+    <section *ngFor="let event of events"
+        class="transform transition duration-500 hover:scale-110 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl flex-none w-1/4 p-8 ease-out"
+        [style.background-image]="'url(' + event.img + ')'">
+        <h3 class="text-white text-3xl font-bold mb-4">
+            {{ event.title }}
+            <sub class="text-xs block">{{ event.date }}</sub>
+        </h3>
+        <p class="text-white text-lg mb-6">{{ event.content }}</p>
+        <a class="inline-flex items-center text-white text-lg font-bold hover:text-blue-500 transition-colors">
+            <i class="ri-information-line"></i>
+            <span class="ml-2">More info</span>
+        </a>
+    </section>
+</div>
+  

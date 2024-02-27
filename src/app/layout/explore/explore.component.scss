@@ -1,0 +1,12 @@
+@keyframes bgZoom {
+    from {
+      background-size: 100%;
+    }
+    to {
+      background-size: 110%;
+    }
+  }
+  .main {
+    animation: bgZoom 30s infinite alternate ease-in-out;
+  }
+  
