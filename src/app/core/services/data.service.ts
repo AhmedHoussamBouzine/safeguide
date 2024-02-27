@@ -41,15 +41,18 @@ export class DataService {
     return itemsSnapshots.docs.map((doc) => doc.data() as Item);
   }
   async getItemsByCityAndCategory(city: string, category: string): Promise<Item[]> {
-    const qry = query(
-      this.itemsCollection,
-      where("city", "==", city),
-      where("category", "==", category),
-      limit(100),
-    );
-
-    const itemsSnapshots = await getDocs(qry);
-    return itemsSnapshots.docs.map((doc) => doc.data() as Item);
+    if (category != "" && city != "") {
+      const qry = query(
+        this.itemsCollection,
+        where("city", "==", city),
+        where("category", "==", category),
+        limit(100),
+      );
+      const itemsSnapshots = await getDocs(qry);
+      return itemsSnapshots.docs.map((doc) => doc.data() as Item);
+    } else {
+      return [];
+    }
   }
 
 }
