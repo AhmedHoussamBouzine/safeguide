@@ -1,58 +1,52 @@
 @if (city) {
 <div class="my-16">
-  <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 py-4 items-start">
-    <div>
-      <div class="mb-4">
-        <div class="relative mb-4">
-          <img class="w-full rounded-lg h-[300px] object-cover border border-gray-300"
-            [src]="city.image" alt="" />
-        </div>
-        <div class="flex gap-4 justify-center flex-wrap">
-          @for (picture of city.images; track $index) {
-          <img class="w-1/6 rounded-lg h-[60px] object-cover border border-gray-300 cursor-pointer" [class]="
+  <div>
+    <div class="mb-4">
+      <div class="relative mb-4">
+        <img class="w-full rounded-lg h-[500px] object-cover border border-gray-300" [src]="city.image" alt="" />
+      </div>
+      <div class="flex gap-4 justify-center flex-wrap">
+        @for (picture of city.images; track $index) {
+        <img class="w-1/6 rounded-lg h-[90px] object-cover border border-gray-300 cursor-pointer" [class]="
                   $index === activeImage
                     ? 'border-primary-500 ring-2 ring-primary-200 p-[2px]'
                     : ''
                 " [src]="picture" alt="" (click)="activeImage = $index" />
-          }
-        </div>
+        }
       </div>
-
-      <div class="flex justify-between items-center flex-wrap px-4">
-        <div class="inline-flex items-center text-xs font-semibold">
-          <img ngOptimizedImage class="w-10 h-10 rounded-full object-cover border" [src]="city.images[1]"
-            alt="user_image" />
-          <div class="my-4 mx-2">
-            <p>
-              {{ city.name }}
-            </p>
-            <div class="flex items-center gap-1">
-              <i class="ri-star-fill text-yellow-300"></i>
-              <p>4.5</p>
-            </div>
-          </div>
-        </div>
-        <p class="text-primary-500 font-semibold"> MAD</p>
-      </div>
-      <div class="border-t-2 border-gray-300 mb-4"></div>
-
     </div>
-    <div>
-      <h5 class="text-2xl font-semibold mb-4">{{ city.name }}</h5>
-      <div class="border-t-2 border-gray-300 mb-4"></div>
-      <div class="flex items-center gap-4 px-2 mb-4 text-gray-500 text-xs font-semibold">
-        <div class="flex items-center gap-1">
-          <i class="ri-map-pin-line"></i>
-          <p>0.3km</p>
-        </div>
-        <div class="flex items-center gap-1">
-          <i class="ri-time-line"></i>
-          <p></p>
-        </div>
-      </div>
-      <p class="text-gray-500 text-sm mb-4 px-2">{{ city.desc }}</p>
-    </div>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
   </div>
+  <div>
+    <h5 class="text-5xl font-semibold mb-4">{{ city.name }}</h5>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
+    <div class="flex items-center gap-4 px-2 mb-4 text-gray-500 text-xs font-semibold">
+      <div class="flex items-center gap-1">
+        <i class="ri-map-pin-line"></i>
+        <p>0.3km</p>
+      </div>
+      <div class="flex items-center gap-1">
+        <i class="ri-time-line"></i>
+        <p>2 hours</p>
+      </div>
+    </div>
+    <p class="text-gray-500 text-lg mb-4 px-2">{{ city.desc }}</p>
+  </div>
+  <div>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
+    <h5 class="text-4xl font-semibold mb-4">Stadium</h5>
+    <img class="w-full rounded-lg h-[500px] object-cover border border-gray-300" [src]="city.stadium" alt="" />
+    <p class="text-gray-500 text-lg px-2 my-4">{{ city.stadiumDesc }}</p>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
+
+  </div>
+  <div class="my-10">
+    <h5 class="text-4xl font-semibold mb-4">Stadium Location:</h5>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12094.57348593182!2d-74.00599512526003!3d40.72586666928451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f988156a9%3A0xd54629bdf9d61d68!2sBroadway-Lafayette%20St!5e0!3m2!1spl!2spl!4v1624523797308!5m2!1spl!2spl"
+      class="w-full h-[50vh]" loading="lazy"></iframe>
+  </div>
+
 </div>
 } @else {
 <app-not-found></app-not-found>
