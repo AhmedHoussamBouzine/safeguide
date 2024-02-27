@@ -26,10 +26,10 @@
           <i class="ri-logout-box-r-line text-lg"></i>
         </button>
       } @else {
-        <a routerLink="/login" class="hover:text-orange-800"> Login </a>
+        <a routerLink="/login" class="hover:text-orange-800 font-sans font-bold"> Login </a>
         <app-button routerLink="/signup"> Get started </app-button>
       }
-      <button
+      <button routerLink="/login"
         data-collapse-toggle="navbar-sticky"
         type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm md:hidden"
