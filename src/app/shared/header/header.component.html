@@ -1,62 +1,41 @@
 <nav class="bg-white sticky top-0 w-full z-20 border-b border-gray-200">
-  <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between container py-4"
-  >
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between container py-4">
     <a routerLink="/" class="flex items-center space-x-3">
       <img src="assets/logo.png" class="h-8" alt="SafeGuide Logo" />
       <span class="font-sans font-bold text-2xl">SafeGuide</span>
     </a>
     <div class="flex items-center md:order-2 space-x-3">
       @if (storage.user) {
-        <app-user-avatar
-          class="cursor-pointer"
-          [user]="{
+      <app-user-avatar class="cursor-pointer" [user]="{
             displayName: storage.user.firstName + ' ' + storage.user.lastName,
             picture: storage.user.picture
-          }"
-          [size]="10"
-          [showName]="true"
-        />
+          }" [size]="10" [showName]="true" />
 
-        <button
-          type="button"
-          class="hover:text-red-600"
-          (click)="handleSignOut()"
-        >
-          <i class="ri-logout-box-r-line text-lg"></i>
-        </button>
+      <button type="button" class="hover:text-red-600" (click)="handleSignOut()">
+        <i class="ri-logout-box-r-line text-lg"></i>
+      </button>
       } @else {
-        <a routerLink="/login" class="hover:text-orange-800 font-sans font-bold"> Login </a>
-        <app-button routerLink="/signup"> Get started </app-button>
+      <a routerLink="/login" class="hover:text-orange-800 font-sans font-bold"> Login </a>
+      <app-button routerLink="/signup"> Get started </app-button>
       }
-      <button routerLink="/login"
-        data-collapse-toggle="navbar-sticky"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm md:hidden"
-        aria-controls="navbar-sticky"
-        aria-expanded="false"
-      >
+      <button data-collapse-toggle="navbar-sticky" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm md:hidden" aria-controls="navbar-sticky"
+        aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <i class="ri-menu-line ri-2x"></i>
       </button>
     </div>
-    <div
-      class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-      id="navbar-sticky"
-    >
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul
-        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white"
-      >
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
         @for (link of links; track $index) {
-          <li>
-            <a
-              [routerLink]="link.path"
-              class="block py-2 px-3 hover:text-white hover:bg-orange-500 rounded md:hover:bg-transparent md:hover:text-orange-500 md:p-0"
-              aria-current="page"
-            >
-              {{ link.label }}
-            </a>
-          </li>
+        <li>
+          <a [routerLink]="link.path"
+            class="block py-2 px-3 hover:text-white hover:bg-orange-500 rounded md:hover:bg-transparent md:hover:text-orange-500 md:p-0"
+            aria-current="page">
+            {{ link.label }}
+          </a>
+        </li>
         }
       </ul>
     </div>
