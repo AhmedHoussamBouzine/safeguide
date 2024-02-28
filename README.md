@@ -3,13 +3,6 @@
 ## ✨ Discover Morocco - Authentically, Safely, Affordably
 
 Welcome to SafeGuide - the quintessential digital compass for the savvy traveler venturing into the heart of Morocco. With our Progressive Web App (PWA), powered by the robust trio of Angular, Tailwind CSS, and Firebase, you're all set for a journey that's as seamless as it is secure.
-<p align="center">
-  <img src="./gitImage/discover.jpeg?raw=true" alt="Discover Morocco" width="600"/>
-</p>
-
-<p align="center">
-  <img src="./gitImage/main.jpeg?raw=true" alt="Main Interface" width="600"/>
-</p>
 
 ## Features
 
