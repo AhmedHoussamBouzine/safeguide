@@ -30,6 +30,9 @@ Welcome to SafeGuide - the quintessential digital compass for the savvy traveler
   <img src="./gitImage/architecture.png?raw=true" alt="Architecture" width="500"/>
 </p>
 
+We encountered hosting issues with Firebase, so we opted to host our application on Netlify instead.
+
+
 ## 🌐 Explore SafeGuide Online
 
 You can experience SafeGuide online by visiting [https://safeguide.netlify.app/explore](https://safeguide.netlify.app/explore).
