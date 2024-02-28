@@ -1,18 +1,13 @@
-<div class="flex flex-wrap gap-4 justify-center">
-    <h2 class="w-full text-center text-white text-4xl font-bold mb-8">Next Events in Morocco</h2>
-
-    <section *ngFor="let event of events"
-        class="transform transition duration-500 hover:scale-110 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl flex-none w-1/4 p-8 ease-out"
-        [style.background-image]="'url(' + event.img + ')'">
-        <h3 class="text-white text-3xl font-bold mb-4">
-            {{ event.title }}
-            <sub class="text-xs block">{{ event.date }}</sub>
-        </h3>
-        <p class="text-white text-lg mb-6">{{ event.content }}</p>
-        <a class="inline-flex items-center text-white text-lg font-bold hover:text-blue-500 transition-colors">
-            <i class="ri-information-line"></i>
-            <span class="ml-2">More info</span>
-        </a>
-    </section>
-</div>
-
+<section
+  class="transform transition duration-500 hover:scale-110 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl flex-none w-56 p-8 ease-out"
+  [style.background-image]="'url(' + event.img + ')'">
+  <h3 class="text-white text-3xl font-bold mb-4">
+    {{ event.title }}
+    <sub class="text-xs block">{{ event.date }}</sub>
+  </h3>
+  <p class="text-white text-lg mb-6">{{ event.content }}</p>
+  <a class="inline-flex items-center text-white text-lg font-bold hover:text-blue-500 transition-colors">
+    <i class="ri-information-line"></i>
+    <span class="ml-2">More info</span>
+  </a>
+</section>

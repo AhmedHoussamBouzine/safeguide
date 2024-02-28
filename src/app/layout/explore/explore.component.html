@@ -1,5 +1,6 @@
-<div class="main bg-cover h-[100vh] bg-center grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 items-center animate-fadeIn"
-     style="background-image:url('https://images.ctfassets.net/rc3dlxapnu6k/4iXwOC9me91lX1ngawKVVq/4d9514c3d993086e17922b1c5e779ff1/iStock-1360012506.jpg?w=3533&h=1987&fl=progressive&q=50&fm=jpg')">
+<div
+  class="main bg-cover h-[100vh] bg-center grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 items-center animate-fadeIn"
+  style="background-image:url('https://images.ctfassets.net/rc3dlxapnu6k/4iXwOC9me91lX1ngawKVVq/4d9514c3d993086e17922b1c5e779ff1/iStock-1360012506.jpg?w=3533&h=1987&fl=progressive&q=50&fm=jpg')">
 
   <section class="mx-8 my-4">
     <h1 class="text-white font-sans text-5xl font-bold uppercase leading-tight w-full m-4">Welcome to MOROCCO</h1>
@@ -7,11 +8,12 @@
       Where history meets modernity, a vibrant tapestry of culture, colors, and warm hospitality.
     </p>
     <a routerLink="/discover"
-    class="text-white border border-white border-opacity-50 rounded-full font-sans text-lg text-center uppercase w-20 h-auto m-4 py-2 px-4 hover:bg-white hover:text-black transition-colors duration-300">Discover</a>
+      class="text-white border border-white border-opacity-50 rounded-full font-sans text-lg text-center uppercase w-20 h-auto m-4 py-2 px-4 hover:bg-white hover:text-black transition-colors duration-300">Discover</a>
   </section>
 
-  <section>
-    <app-card-event></app-card-event>
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-5 h-64">
+    @for(event of events ; track event){
+    <app-card-event [event]="event" class="w-64" ></app-card-event>
+    }
   </section>
 </div>
-
