@@ -30,6 +30,12 @@ Welcome to SafeGuide - the quintessential digital compass for the savvy traveler
   <img src="./gitImage/architecture.png?raw=true" alt="Architecture" width="500"/>
 </p>
 
+## 🌐 Explore SafeGuide Online
+
+You can experience SafeGuide online by visiting [https://safeguide.netlify.app/explore](https://safeguide.netlify.app/explore).
+
+---
+
 ### 🏁 Get Started
 
 Embark on the SafeGuide journey:
