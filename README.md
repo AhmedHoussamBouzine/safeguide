@@ -38,7 +38,7 @@ You can experience SafeGuide online by visiting [https://safeguide.netlify.app/e
 
 ## Getting Started
 
-To run SoliFood locally, follow these steps::
+To run SafeGuide locally, follow these steps::
 
 1. 📥 Clone the repository : `https://github.com/AhmedHoussamBouzine/safeguide.git`.
 2. 🌐 Install Angular CLI with `npm install -g @angular/cli`.
